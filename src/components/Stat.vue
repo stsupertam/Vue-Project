@@ -47,6 +47,7 @@ a {
   color: #42b983;
 }
 .col.s10.offset-s2 {
-  padding: 35px;
+  text-align: center;
+  padding-right: 2.8cm;
 }
 </style>
