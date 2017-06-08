@@ -23,7 +23,7 @@
 <script>
 import profile from './Profile'
 
-const api = 'http://ow-api.herokuapp.com/stats/pc/us/SuperTam-6491'
+const api = 'http://ow-api.herokuapp.com/stats/pc/us/'
 
 export default {
   name: 'hello',
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     submitRequest (event) {
-      let url = api
+      let url = api + this.battleTag
       this.axios.get(url).then((response) => {
         console.log(response.data)
         this.data = response.data

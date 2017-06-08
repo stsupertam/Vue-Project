@@ -17,8 +17,10 @@
             </div>
           </div>
         </div>
-     </div>
-     <stat></stat>
+      </div>
+      <div v-if="stats">
+        <stat v-bind:playerStat="stats"></stat>
+      </div>
     </div>
   </div>
 </template>

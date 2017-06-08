@@ -2,7 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col s12">
-        <p>Competitive</p>
+          <div class="card-panel deep-orange darken-1">
+            <span class="white-text">
+              Mai eiei Mai eiei Mai eiei
+            </span>
+          </div>
       </div>
     </div>
   </div>

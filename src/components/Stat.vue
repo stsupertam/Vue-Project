@@ -2,12 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col s10 offset-s2">
-        <button class="btn waves-effect waves-light" v-on:click="setDisplay('qp')">Quickplay</button>
-        <button class="btn waves-effect waves-light" v-on:click="setDisplay('cp')">Competitive</button>
+        <button class="btn waves-effect light-blue darken-1" v-on:click="setDisplay('qp')">Quickplay</button>
+        <button class="btn waves-effect deep-orange darken-1" v-on:click="setDisplay('cp')">Competitive</button>
       </div>
     </div>
-    <quickplay v-if="childDisplay === 'qp'"></quickplay> 
-    <competitive v-if="childDisplay === 'cp'"></competitive>
+    <div v-if="playerStat">    
+      <quickplay v-if="childDisplay === 'qp'"></quickplay> 
+      <competitive v-if="childDisplay === 'cp'"></competitive>
+    </div>
   </div>
 </template>
 
@@ -16,9 +18,11 @@ import quickplay from './Quickplay'
 import competitive from './Competitive'
 
 export default {
+  props: ['playerStat'],
   data () {
     return {
-      competitive: false,
+      quickplay: [],
+      competitive: [],
       childDisplay: ''
     }
   },
@@ -29,6 +33,10 @@ export default {
   methods: {
     setDisplay (displayType) {
       this.childDisplay = displayType
+      this.quickplay = this.playerStat.stats.quickplay
+      this.competitive = this.playerStat.stats.competitive
+      console.log(this.playerStat.stats.game.quickplay)
+      console.log(this.playerStat.stats.game.competitive)
     }
   }
 }
@@ -47,7 +55,6 @@ a {
   color: #42b983;
 }
 .col.s10.offset-s2 {
-  text-align: center;
-  padding-right: 2.8cm;
+  padding: 35px;
 }
 </style>
