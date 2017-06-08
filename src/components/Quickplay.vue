@@ -1,12 +1,19 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col s12">
-          <div class="card-panel light-blue darken-1">
-            <span class="white-text">
-              Eiei eiei eiei eiei eiei eiei eiei
-            </span>
+      <div class="card-panel light-blue darken-1">
+        <div class="row">
+          <div class="col s6">
+            <h6 v-for="i in quickplay.length">
+              {{ quickplay[i-1].title }}
+            </h6>
           </div>
+          <div class="col s6">
+            <h6 v-for="i in quickplay.length">
+              {{ quickplay[i-1].value }}
+            </h6>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -15,6 +22,7 @@
 <script>
 
 export default {
+  props: ['quickplay'],
   data () {
     return {
     }
@@ -23,16 +31,8 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  text-align: center;
-  padding: 0;
+h6 {
+  color: white;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
 
+</style>

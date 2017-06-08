@@ -7,8 +7,8 @@
       </div>
     </div>
     <div v-if="playerStat">    
-      <quickplay v-if="childDisplay === 'qp'"></quickplay> 
-      <competitive v-if="childDisplay === 'cp'"></competitive>
+      <quickplay v-if="childDisplay === 'qp'" v-bind:quickplay="quickplay"></quickplay> 
+      <competitive v-if="childDisplay === 'cp'" v-bind:competitive="competitive"></competitive>
     </div>
   </div>
 </template>
@@ -33,10 +33,8 @@ export default {
   methods: {
     setDisplay (displayType) {
       this.childDisplay = displayType
-      this.quickplay = this.playerStat.stats.quickplay
-      this.competitive = this.playerStat.stats.competitive
-      console.log(this.playerStat.stats.game.quickplay)
-      console.log(this.playerStat.stats.game.competitive)
+      this.quickplay = this.playerStat.stats.game.quickplay
+      this.competitive = this.playerStat.stats.game.competitive
     }
   }
 }
@@ -46,13 +44,6 @@ export default {
 h1 {
   text-align: center;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 .col.s10.offset-s2 {
   padding: 35px;
